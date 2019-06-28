@@ -8,12 +8,20 @@ const skipButton = document.querySelector('[data-skip]');
 const ranges = document.querySelector('.player__slider');
 
 // Play / Pause Toggle 
-function togglePlay(){
+function togglePlay() {
     const method = video.paused ? 'play' : 'pause';
     video[method]()
+}
+// update button play / pause icon
+function updateButton() {
+    const icon = this.paused ? '►' : '❚ ❚';
+    toggle.textContent = icon;
 }
 
 // event listeners
 video.addEventListener('click', togglePlay);
 video.addEventListener('play', updateButton);
 video.addEventListener('pause', updateButton);
+
+
+toggle.addEventListener('click', togglePlay);
