@@ -19,28 +19,30 @@ function updateButton() {
 }
 
 // video skip
-function skip(){
+function skip() {
     console.log(this.dataset.skip);
     video.currentTime += parseFloat(this.dataset.skip);
 }
 
 // volume and video play rate
-function handleRangeUpdate(){
+function handleRangeUpdate() {
     console.log(this.name)
     console.log(this.value)
     video[this.name] = this.value;
 }
 
-// vide scrubber
-function handleProgress(){
+// vide handle progress
+function handleProgress() {
+    console.log('progressBar')
     const percent = (video.currentTime / video.duration) * 100;
-    progressBar.getElementsByClassName.flexBasis = `${percent}%`
+    progressBar.style.flexBasis = `${percent}%`;
 }
 
 // event listeners fire with function
 video.addEventListener('click', togglePlay);
 video.addEventListener('play', updateButton);
 video.addEventListener('pause', updateButton);
+video.addEventListener('timeUpdate', handleProgress);
 
 
 toggle.addEventListener('click', togglePlay);
