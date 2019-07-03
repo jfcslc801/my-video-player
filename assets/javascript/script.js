@@ -31,6 +31,12 @@ function handleRangeUpdate(){
     video[this.name] = this.value;
 }
 
+// vide scrubber
+function handleProgress(){
+    const percent = (video.currentTime / video.duration) * 100;
+    progressBar.getElementsByClassName.flexBasis = `${percent}%`
+}
+
 // event listeners fire with function
 video.addEventListener('click', togglePlay);
 video.addEventListener('play', updateButton);
